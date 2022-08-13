@@ -1,0 +1,36 @@
+{
+  "name": "codecrew-backend",
+  "version": "1.0.0",
+  "description": "CodeCrew Backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js --exec babel-node --presets babel-preset-env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F1R3W0LF-96/codecrew-backend.git"
+  },
+  "author": "Ankit Parashar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/F1R3W0LF-96/codecrew-backend/issues"
+  },
+  "homepage": "https://github.com/F1R3W0LF-96/codecrew-backend#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.2",
+    "nodemon": "^2.0.19",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0"
+  }
+}
