@@ -1,10 +1,7 @@
-import User from "../user/user.model";
+import { constant } from "../../../helpers/constant";
+import User from "./user.model";
 
-const EXISTS = "EXISTS";
-const NOT_FOUND = "NOT_FOUND";
-const SUCCESS = "SUCCESS";
-const UPDATED = "UPDATED";
-const DELETED = "DELETED";
+
 
 export default {
 
@@ -17,13 +14,13 @@ export default {
 
                 const user=await User.create(req.body);
                 return res.send({
-                    message:SUCCESS,
+                    message:constant.SUCCESS,
                     data:user
                 })
             }
             else{
                 return res.status(400).send({
-                    message:EXISTS
+                    message:constant.EXISTS
                 })
             }
         }
@@ -32,13 +29,12 @@ export default {
         }
 
     },
-
     async findUsers(req, res, next) {
         try {
 
             const users=await User.find();
             return res.send({
-                message:SUCCESS,
+                message:constant.SUCCESS,
                 data:users
             })
         }
@@ -52,11 +48,11 @@ export default {
             const foundUser=await User.findOne({_id:req.params.id});
             if(!foundUser){
                 return res.status(404).send({
-                    message:NOT_FOUND
+                    message:constant.NOT_FOUND
                 })
             }
             return res.send({
-                message:SUCCESS,
+                message:constant.SUCCESS,
                 data:foundUser
             })
         }
@@ -76,12 +72,12 @@ export default {
             const updateUser=await User.findOneAndUpdate({_id:req.query.id},user,{new:true});
             if(!updateUser){
                 return res.status(404).send({
-                    message:NOT_FOUND
+                    message:constant.NOT_FOUND
                 })
             }
             else{
                 return res.send({
-                    message:UPDATED,
+                    message:constant.UPDATED,
                     data:updateUser
                 })
             }
@@ -96,12 +92,12 @@ export default {
             const deleteUser=await User.findByIdAndRemove({_id:req.query.id});
        if(!deleteUser){
            return res.status(404).send({
-               message:NOT_FOUND
+               message:constant.NOT_FOUND
            })
        }
        else{
               return res.send({
-                message:DELETED
+                message:constant.DELETED
               })
        }
        
@@ -110,7 +106,4 @@ export default {
             next(err);
         }
     }
-
-
-
 }
