@@ -5,6 +5,7 @@ import CORS from "./middlewares/cors";
 import notFound from "./middlewares/notFound";
 import error from "./middlewares/error";
 import { restRouter } from "./api/resources";
+import AUTH from "./middlewares/authJwt";
 
 const app=express();
 const PORT=process.env.PORT || 5000;
@@ -15,6 +16,7 @@ DB.connect();
 
 app.use(express.json());
 app.use(CORS.handleCors);
+// app.use(AUTH.authJwt);
 app.use('/api', restRouter);
 
 app.use(notFound);
