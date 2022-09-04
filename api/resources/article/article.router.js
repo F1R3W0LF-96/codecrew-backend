@@ -8,3 +8,6 @@ articleRouter.route('/')
 .post(articleController.createArticle)
 .put(articleController.updateArticle)
 .delete(articleController.deleteArticle);
+
+articleRouter.route("/:title")
+.get(articleController.findArticlesByTitle);

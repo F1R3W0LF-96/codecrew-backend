@@ -37,4 +37,15 @@ const articleSchema = new Schema({
 }
 );
 
-export default mongoose.model("Article", articleSchema);
+const articleListModel={
+    title: "",
+    topic:"",
+    subtopic: "",
+    description: ""
+}
+const Article=mongoose.model("Article", articleSchema);
+
+export  {
+    Article,
+    articleListModel
+}

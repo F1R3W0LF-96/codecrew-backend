@@ -1,5 +1,5 @@
 import { constant } from "../../../helpers/constant";
-import Article from "./article.model";
+import { Article, articleListModel } from "./article.model";
 
 export default {
 
@@ -31,7 +31,7 @@ export default {
     async findArticles(req, res, next) {
         try {
 
-            const articles=await Article.find();
+            const articles=await Article.find({}).select({title:1, description:1, topic:1, subtopic:1});
             return res.send({
                 message:constant.SUCCESS,
                 data:articles
