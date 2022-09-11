@@ -5,4 +5,5 @@ import { userRouter } from "./user";
 export const restRouter = express.Router();
 
 restRouter.use("/user",AUTH.authJwt,userRouter);
+
 restRouter.use("/article",articleRouter);

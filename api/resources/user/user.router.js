@@ -13,3 +13,9 @@ userRouter.route('/find/:id')
 .get(userController.findUser);
 userRouter.route('/all')
 .get(userController.findUsers);
+
+
+userRouter.route('/login')
+.get(userController.loginUserDetails);
+userRouter.route('/signup')
+.post(userController.signUpUserDetails);

@@ -1,5 +1,5 @@
 
 
 export default {
-    secret:"ankit-secret-key",
+    secret:"code-crew-secret-key",
 }

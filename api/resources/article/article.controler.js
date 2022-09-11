@@ -129,7 +129,7 @@ export default {
     },
     async findArticlesByTitle(req, res, next) {
         try {
-            const foundArticles=await Article.find({title:req.params.title});
+            const foundArticles=await Article.find({title:req.params.title}).populate("createdBy",{email:1,firstName:1});
             if(!foundArticles){
                 return res.status(404).send({
                     message:constant.NOT_FOUND
